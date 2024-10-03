@@ -1,10 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AnalyticsCounter {
 	private static int  headCount = 0;
@@ -53,8 +50,22 @@ public class AnalyticsCounter {
 		return result;
 	}
 
+	/**
+	 * method that sorts the list of symptoms and occurrences alphabetically
+	 * @param symptoms
+	 * @return
+	 */
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 
+		Map<String, Integer> result = new TreeMap<>(symptoms);
+		return  result;
 
+	}
+
+	//
+	public void writeSymptoms(Map<String, Integer> symptoms) {
+		symptoms = write2.writeSymptoms();
+	}
 
 	public static void main(String[] args) throws IOException {
 
