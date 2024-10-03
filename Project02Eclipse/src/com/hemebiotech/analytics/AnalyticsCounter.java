@@ -11,7 +11,7 @@ public class AnalyticsCounter {
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine();
-		
+
 		while (line != null) {
             System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
