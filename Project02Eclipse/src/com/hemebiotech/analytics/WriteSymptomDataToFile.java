@@ -17,6 +17,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
         this.filepath = filepath;
     }
 
+    public WriteSymptomDataToFile(String filepath) {
+        this.filepath = filepath;
+    }
+
     @Override
     public Map<String, Integer> writeSymptoms() {
 
@@ -32,7 +36,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
             }
             writer.close();
         } catch (IOException e) {
-            System.err.println("Erreur lors de l'écriture dans le fichier : " + filepath + " parceque : " + e.getMessage());
+            System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
         }
         return Map.of();
     }
