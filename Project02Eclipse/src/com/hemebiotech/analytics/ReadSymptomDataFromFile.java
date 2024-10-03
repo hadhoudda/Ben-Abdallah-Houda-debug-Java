@@ -6,10 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Simple brute force implementation
- *
- */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
@@ -22,10 +18,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
@@ -46,8 +38,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				}
 				reader.close();
 			} catch (IOException e) {
-				//e.printStackTrace();
-				System.out.println("Impossible de lire le fichier");
+				e.printStackTrace();
 			}
 		}
 		
