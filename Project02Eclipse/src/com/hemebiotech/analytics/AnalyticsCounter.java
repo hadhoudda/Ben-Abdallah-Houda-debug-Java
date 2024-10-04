@@ -7,12 +7,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int  headCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
+//	private static int  headCount = 0;
+//	private static int rashCount = 0;
+//	private static int pupilCount = 0;
 
-	ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-	ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
+	ISymptomReader reader ;
+	ISymptomWriter writer ;
 
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
@@ -37,7 +37,6 @@ public class AnalyticsCounter {
 		for (String symptom : symptoms) {
 			result.put(symptom, result.getOrDefault(symptom, 0) + 1);
 		}
-
 		return result;
 	}
 
@@ -60,33 +59,33 @@ public class AnalyticsCounter {
 	}
 
 
-	public static void main(String[] args) throws IOException {
-
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
-		String line = reader.readLine();
-
-		while (line != null) {
-            System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();
-		}
-
-		FileWriter writer = new FileWriter ("result.out");
-
-        writer.write("headache: " + headCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+//	public static void main(String[] args) throws IOException {
+//
+//		// first get input
+//		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
+//		String line = reader.readLine();
+//
+//		while (line != null) {
+//            System.out.println("symptom from file: " + line);
+//			if (line.equals("headache")) {
+//				headCount++;
+//				System.out.println("number of headaches: " + headCount);
+//			}
+//			else if (line.equals("rush")) {
+//				rashCount++;
+//			}
+//			else if (line.contains("pupils")) {
+//				pupilCount++;
+//			}
+//
+//			line = reader.readLine();
+//		}
+//
+//		FileWriter writer = new FileWriter ("result.out");
+//
+//        writer.write("headache: " + headCount + "\n");
+//		writer.write("rash: " + rashCount + "\n");
+//		writer.write("dialated pupils: " + pupilCount + "\n");
+//		writer.close();
+//	}
 }
