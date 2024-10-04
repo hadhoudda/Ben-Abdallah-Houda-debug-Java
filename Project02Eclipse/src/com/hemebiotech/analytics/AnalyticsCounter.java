@@ -1,31 +1,30 @@
 package com.hemebiotech.analytics;
 
 import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	private static int  headCount = 0;
 	private static int rashCount = 0;
 	private static int pupilCount = 0;
 
-	//Creating the interface object ISymptomReader
-	ISymptomReader reader2 = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-	//Creating the interface object ISymptomWrite
-	ISymptomWriter write2 = new WriteSymptomDataToFile("result.out");
+	ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
+	ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
 
-
-	public AnalyticsCounter(ISymptomReader reader2, ISymptomWriter write2) {
-		this.reader2 = reader2;
-		this.write2 = write2;
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
 	}
-
 	/**
 	 * method to retrieve the list of entries in the file using the instance of ISymptomReader
 	 * @return
 	 */
-//	public List<String> getSymptoms() {
-//		return reader2.GetSymptoms();
-//	}
+	public List<String> getSymptoms() {
+		return reader.GetSymptoms();
+	}
 
 	/**
 	 * method that counts occurrences of each existing symptom
@@ -34,17 +33,9 @@ public class AnalyticsCounter {
 	 */
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		// Map to store words and their number of occurrences
-		Map<String, Integer> symptomCount = new HashMap<>();
-		for (String symptom : symptoms) {
-			symptomCount.put(symptom, symptomCount.getOrDefault(symptom, 0) + 1);
-		}
-
 		Map<String, Integer> result = new HashMap<>();
-
-		for (Map.Entry<String, Integer> entry : symptomCount.entrySet()) {
-			String symptom = entry.getKey();
-			int count = entry.getValue();
-			result.put(symptom , count);
+		for (String symptom : symptoms) {
+			result.put(symptom, result.getOrDefault(symptom, 0) + 1);
 		}
 
 		return result;
@@ -56,13 +47,17 @@ public class AnalyticsCounter {
 	 * @return
 	 */
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
-
 		Map<String, Integer> result = new TreeMap<>(symptoms);
 		return  result;
-
 	}
 
-	//
+	/**
+	 *
+	 * @param symptoms
+	 */
+	public void writeSymptoms(Map<String, Integer> symptoms) {
+		writer.writeSymptoms(symptoms);
+	}
 
 
 	public static void main(String[] args) throws IOException {
