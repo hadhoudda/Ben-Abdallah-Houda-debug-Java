@@ -23,9 +23,9 @@ public class AnalyticsCounter {
 	 * method to retrieve the list of entries in the file using the instance of ISymptomReader
 	 * @return
 	 */
-	public List<String> getSymptoms() {
-		return reader2.GetSymptoms();
-	}
+//	public List<String> getSymptoms() {
+//		return reader2.GetSymptoms();
+//	}
 
 	/**
 	 * method that counts occurrences of each existing symptom
@@ -63,9 +63,7 @@ public class AnalyticsCounter {
 	}
 
 	//
-	public void writeSymptoms(Map<String, Integer> symptoms) {
-		symptoms = write2.writeSymptoms();
-	}
+
 
 	public static void main(String[] args) throws IOException {
 
