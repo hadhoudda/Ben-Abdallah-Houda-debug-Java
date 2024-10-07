@@ -16,16 +16,15 @@ public class AnalyticsCounter {
 	}
 	/**
 	 * method to retrieve the list of entries in the file using the instance of ISymptomReader
-	 * @return
 	 */
 	public List<String> getSymptoms() {
-		return reader.GetSymptoms();
+		return reader.getSymptoms();
 	}
 
 	/**
-	 * method that counts occurrences of each existing symptom
-	 * @param symptoms
-	 * @return
+	 * method to count occurrences of each existing symptom
+	 * @param symptoms : list symptoms
+	 * @return result : list symptoms and occurrences
 	 */
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		// Map to store words and their number of occurrences
@@ -37,17 +36,17 @@ public class AnalyticsCounter {
 	}
 
 	/**
-	 * method that sorts the list of symptoms and occurrences alphabetically
-	 * @param symptoms
-	 * @return
+	 * method to sort the list of symptoms and occurrences alphabetically
+	 * @param symptoms list symptoms and occurrences
+	 * @return list symptoms and occurrences alphabetically
 	 */
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
         return new TreeMap<>(symptoms);
 	}
 
 	/**
-	 *
-	 * @param symptoms
+	 * method to writer the list symptoms and occurrences in the file using the instance of ISymptomWriter
+	 * @param  symptoms list symptoms and occurrences
 	 */
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);

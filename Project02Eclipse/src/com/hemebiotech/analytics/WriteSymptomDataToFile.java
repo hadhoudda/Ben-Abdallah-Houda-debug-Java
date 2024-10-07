@@ -20,6 +20,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
         this.filepath = filepath;
     }
 
+    /**
+     * method to writer symptoms to a file
+     * @param symptoms : list of symptoms and occurrences
+     */
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
         try  {
