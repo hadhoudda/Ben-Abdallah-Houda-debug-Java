@@ -14,6 +14,7 @@ public class AnalyticsCounter {
 		this.reader = reader;
 		this.writer = writer;
 	}
+
 	/**
 	 * method to retrieve the list of entries in the file using the instance of ISymptomReader
 	 */
@@ -51,5 +52,4 @@ public class AnalyticsCounter {
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);
 	}
-
 }

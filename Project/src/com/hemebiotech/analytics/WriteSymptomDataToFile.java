@@ -26,16 +26,30 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
      */
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
-        try  {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
-            for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
-                String line = entry.getKey() + ": " + entry.getValue();
-                writer.write(line);
-                writer.newLine();
-            }
-            writer.close();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
+            symptoms.forEach((key, value) -> {
+                try {
+                    writer.write(key + " : " + value);
+                    writer.newLine();
+                } catch (IOException e) {
+                    System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
+                }
+            });
         } catch (IOException e) {
             System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
         }
     }
-}
+//        try  {
+//            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
+//            ///////// stream //////
+//            for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
+//                String line = entry.getKey() + ": " + entry.getValue();
+//                writer.write(line);
+//                writer.newLine();
+//            }
+//            writer.close();
+//        } catch (IOException e) {
+//            System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
+//        }
+    }
+

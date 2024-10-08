@@ -1,17 +1,14 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
-
     public static void main(String[] args) {
-
         ISymptomReader reader = new ReadSymptomDataFromFile("Project/Resources/symptoms.txt");
         ISymptomWriter writer = new WriteSymptomDataToFile("Project/Resources/result.out");
         AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
-        //read symptoms
+        //read symptoms from file "symptoms.txt"
         List<String> listSymtoms  = analyticsCounter.getSymptoms();
         System.out.println(listSymtoms);
         //count symptoms
@@ -23,7 +20,5 @@ public class Main {
         //write to file result.out
         analyticsCounter.writeSymptoms(countSymptomsOrder);
         System.out.println("write to file");
-
-        //analyticsCounter.writeSymptoms((analyticsCounter.sortSymptoms(analyticsCounter.countSymptoms(analyticsCounter.getSymptoms()))));
     }
 }
