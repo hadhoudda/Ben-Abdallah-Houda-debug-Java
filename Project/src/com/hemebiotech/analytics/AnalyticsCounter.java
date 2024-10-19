@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-
 	ISymptomReader reader ;
 	ISymptomWriter writer ;
 

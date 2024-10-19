@@ -39,17 +39,4 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
             System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
         }
     }
-//        try  {
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
-//            ///////// stream //////
-//            for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
-//                String line = entry.getKey() + ": " + entry.getValue();
-//                writer.write(line);
-//                writer.newLine();
-//            }
-//            writer.close();
-//        } catch (IOException e) {
-//            System.err.println("Error writing to file: " + filepath + " because : " + e.getMessage());
-//        }
-    }
-
+}

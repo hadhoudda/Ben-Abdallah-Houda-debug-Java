@@ -9,12 +9,12 @@ public class Main {
         ISymptomWriter writer = new WriteSymptomDataToFile("Project/Resources/result.out");
         AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
         //read symptoms from file "symptoms.txt"
-        List<String> listSymtoms  = analyticsCounter.getSymptoms();
-        System.out.println(listSymtoms);
+        List<String> listSymptoms  = analyticsCounter.getSymptoms();
+        System.out.println(listSymptoms);
         //count symptoms
-        Map<String, Integer> countSymptoms  = analyticsCounter.countSymptoms(listSymtoms);
+        Map<String, Integer> countSymptoms  = analyticsCounter.countSymptoms(listSymptoms);
         System.out.println(countSymptoms);
-       //sorts symptots in alphabetical order
+       //sorts symptoms in alphabetical order
         Map<String, Integer> countSymptomsOrder  = analyticsCounter.sortSymptoms(countSymptoms);
         System.out.println(countSymptomsOrder);
         //write to file result.out
