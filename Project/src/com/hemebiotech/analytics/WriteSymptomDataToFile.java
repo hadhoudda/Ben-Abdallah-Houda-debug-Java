@@ -26,6 +26,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
      */
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
+        if (symptoms == null || symptoms.isEmpty()) {
+            System.err.println("No symptoms to write.");
+            return;
+        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
             symptoms.forEach((key, value) -> {
                 try {
